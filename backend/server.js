@@ -3,7 +3,7 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const PASTA_SITE = path.join(__dirname, "..", "frontend");
+const PASTA_SITE = path.join(__dirname, "..", "/");
 const PAGINA_INICIAL = path.join(PASTA_SITE, "lillium.html");
 
 app.disable("x-powered-by");
