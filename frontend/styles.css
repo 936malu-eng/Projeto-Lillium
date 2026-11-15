@@ -1,0 +1,891 @@
+@font-face {
+  font-family: titulo;
+  src: url(./assets/MonogramsToolbox.ttf);
+}
+
+@font-face {
+  font-family: subtitulo;
+  src: url(./assets/Roman\ SD.ttf);
+}
+
+@font-face {
+  font-family: texto;
+  src: url(./assets/TIMESS__.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* evita que o menu fixo cubra o título da seção ao rolar */
+  scroll-padding-top: 90px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ---------- Cabeçalho / menu ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #bd9ed9a6;
+  padding: 15px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h2 {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "titulo";
+  color: #512784;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "subtitulo";
+  font-size: 20px;
+  color: #3b1a63;
+}
+
+.navbar li {
+  padding: 4px 15px;
+  cursor: pointer;
+}
+
+/* hover e item da seção atual / clicada ficam mais escuros */
+.navbar li:hover,
+.navbar li:focus-visible,
+.navbar li.ativo {
+  color: #0d0019;
+}
+
+.navbar li.ativo {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.navbar li:focus-visible {
+  outline: 2px solid #0d0019;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  width: 100%;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  background: linear-gradient(to right, #bd9ed9, #eaddf0, #f6f2f8, #bd9ed9);
+}
+
+.texthero {
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+
+.texthero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: "subtitulo";
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 6px;
+  margin-inline-start: 20px;
+}
+
+.texthero h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: "subtitulo";
+  font-weight: bold;
+  color: #1f0037;
+  margin-bottom: 6px;
+  margin-inline-start: 20px;
+}
+
+.texthero h3 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: "subtitulo";
+  font-weight: bold;
+  color: #512784;
+  margin-bottom: 20px;
+  margin-inline-start: 20px;
+}
+
+.texthero p {
+  font-family: "texto";
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  width: 70%;
+}
+
+.btnhero {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btnhero button {
+  min-width: 100px;
+  height: 40px;
+  padding: 0 18px;
+  margin: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: "texto";
+  font-weight: bold;
+}
+
+.btnescuro {
+  background-color: #1f0037;
+  color: white;
+}
+
+.btnclaro {
+  background-color: #512784;
+  color: white;
+}
+
+.imghero {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.imghero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Saiba mais ---------- */
+
+.saiba-mais {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  background-color: rgb(175, 150, 197);
+}
+
+.saiba-mais h2 {
+  font-family: "titulo";
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  text-align: center;
+  padding: 20px 15px 0;
+}
+
+.saiba-mais p {
+  font-family: "subtitulo";
+  font-size: 14px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 40px 0 40px;
+  flex-wrap: wrap;
+}
+
+.card,
+.card-oculto.active {
+  display: block;
+  background-color: white;
+  border-radius: 15px;
+  text-align: center;
+  width: 380px;
+  max-width: 100%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.card-oculto {
+  display: none;
+}
+
+.card img,
+.card-oculto img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.card h3,
+.card-oculto h3 {
+  font-family: "texto";
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1f0037;
+  padding: 0 16px;
+}
+
+.card p,
+.card-oculto p {
+  font-family: "texto";
+  font-size: 14px;
+  padding: 0 16px 18px;
+  background-color: white;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 40px auto 0;
+  padding: 6px 16px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.ver {
+  font-family: "texto";
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.seta {
+  color: white;
+  font-size: 20px;
+  transition:
+    transform 0.3s ease,
+    color 0.25s ease;
+}
+
+/* Ver Menos: o ícone gira e passa para o outro lado do texto */
+.btn-container.aberto {
+  flex-direction: row-reverse;
+}
+
+.btn-container.aberto .seta {
+  transform: rotate(180deg);
+}
+
+/* ---------- Sobre ---------- */
+
+.sobre {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  background-color: #eaddf0;
+}
+
+.sobre h2 {
+  font-family: "subtitulo";
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  text-align: center;
+  padding: 20px 15px 0;
+}
+
+.sobre p {
+  font-family: "texto";
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.percent {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.perc,
+.perc1 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.perc1 h3 {
+  font-family: "subtitulo";
+  font-size: 18px;
+  color: #bd9ed9;
+  margin-bottom: 5px;
+}
+
+.perc1 p,
+.perc p {
+  font-family: "texto";
+  font-size: 12px;
+}
+
+.sobre a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 10px auto;
+  width: 300px;
+  max-width: 90%;
+  height: 80px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-family: "texto";
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #bd9ed9;
+}
+
+/* ---------- Jogue ---------- */
+
+.jogue {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eaddf0;
+}
+
+.jogue h2 {
+  font-family: "subtitulo";
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  text-align: center;
+  padding: 20px 15px 0;
+}
+
+.jogos {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.jogos button {
+  width: 300px;
+  max-width: 100%;
+  height: 80px;
+  margin: 10px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-family: "texto";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.baixe {
+  background-color: #bd9ed9;
+}
+
+.web {
+  background-color: #bd9ed9;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rod {
+  background-color: #1f0037;
+  color: white;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.rodape,
+.rodape1 {
+  flex-direction: column;
+  width: auto;
+  min-width: 0;
+}
+
+.rodape h4 {
+  font-family: "subtitulo";
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.rodape h5 {
+  font-family: "texto";
+  font-size: 15px;
+}
+
+.rodape1 h3 {
+  font-family: "texto";
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.rod li {
+  margin-bottom: 10px;
+}
+
+/* ícone e texto sempre juntos na mesma linha */
+.rod a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-family: "texto";
+  font-size: 15px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.rod a i {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.4em;
+  font-size: 16px;
+}
+
+.rod a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Cards largos (tecnicas.html) ---------- */
+
+.container-largo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0 0 0;
+}
+
+.card-largo {
+  width: 92%;
+  max-width: 1400px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.largo-oculto {
+  display: none;
+}
+
+.largo-oculto.active {
+  display: block;
+}
+
+.card-largo img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.largo-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 24px;
+}
+
+.largo-topo h3 {
+  font-family: "texto";
+  font-size: 20px;
+  color: #1f0037;
+  text-align: left;
+}
+
+.btn-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background-color: #bd9ed9;
+  color: #1f0037;
+  font-family: "texto";
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-card:focus-visible {
+  outline: 3px solid #1f0037;
+  outline-offset: 2px;
+}
+
+.btn-card i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card-largo.aberto .btn-card {
+  flex-direction: row-reverse;
+}
+
+.card-largo.aberto .btn-card i {
+  transform: rotate(180deg);
+}
+
+/* Texto expansível (abre/fecha suavemente) */
+.largo-corpo {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.card-largo.aberto .largo-corpo {
+  grid-template-rows: 1fr;
+}
+
+.largo-corpo > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.card-largo .largo-texto {
+  font-family: "texto";
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  padding: 0 24px 18px 24px;
+}
+
+.largo-texto a {
+  color: #512784;
+  white-space: nowrap;
+}
+
+.foto-membro {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eaddf0;
+  color: #bd9ed9;
+  font-size: 80px;
+}
+
+/* ---------- Hover: botões, cards e itens do menu ---------- */
+
+.navbar li,
+.btnhero button,
+.jogos button,
+.sobre a,
+.btn-card,
+.btn-container,
+.card,
+.card-oculto,
+.card-largo {
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ver {
+  transition: color 0.25s ease;
+}
+
+.navbar li:hover {
+  transform: scale(1.1);
+}
+
+.btnhero button:hover,
+.jogos button:hover,
+.sobre a:hover,
+.btn-card:hover {
+  transform: scale(1.06);
+}
+
+.btnescuro:hover {
+  background-color: #512784;
+}
+
+.btnclaro:hover {
+  background-color: #1f0037;
+}
+
+.baixe:hover,
+.web:hover,
+.sobre a:hover,
+.btn-card:hover {
+  background-color: #512784;
+  color: white;
+}
+
+.btn-container:hover {
+  transform: scale(1.08);
+}
+
+.btn-container:hover .ver,
+.btn-container:hover .seta {
+  color: #1f0037;
+}
+
+.card:hover,
+.card-oculto.active:hover,
+.card-largo:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.card-largo:hover {
+  transform: scale(1.01);
+}
+
+/* ---------- Ícone do Ver Mais / Ver Menos desliza para o outro lado ---------- */
+
+@keyframes icone-abre {
+  from { translate: 4.5em 0; }
+  to { translate: 0 0; }
+}
+
+@keyframes icone-fecha {
+  from { translate: -4.5em 0; }
+  to { translate: 0 0; }
+}
+
+[data-anim="abre"] .seta,
+.btn-card[data-anim="abre"] i {
+  animation: icone-abre 0.35s ease;
+}
+
+[data-anim="fecha"] .seta,
+.btn-card[data-anim="fecha"] i {
+  animation: icone-fecha 0.35s ease;
+}
+
+/* ---------- Animação de entrada ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 900px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .texthero {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .texthero h1,
+  .texthero h2,
+  .texthero h3 {
+    margin-inline-start: 0;
+  }
+
+  .texthero p {
+    width: 100%;
+  }
+
+  .btnhero {
+    justify-content: center;
+  }
+
+  .imghero {
+    flex: none;
+    width: 100%;
+  }
+
+  .container {
+    padding: 30px 20px 0 20px;
+  }
+
+  .rod {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 130px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 15px;
+  }
+
+  .navbar {
+    font-size: 16px;
+  }
+
+  .navbar li {
+    padding: 4px 10px;
+  }
+
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .btnhero button {
+    min-width: 96px;
+    margin: 6px;
+  }
+
+  .card img,
+  .card-oculto img,
+  .foto-membro {
+    height: 240px;
+  }
+
+  .container {
+    padding: 24px 15px 0 15px;
+    gap: 20px;
+  }
+
+  .sobre p {
+    font-size: 16px;
+    padding: 10px 15px 0 15px;
+  }
+
+  .percent {
+    gap: 30px;
+  }
+
+  .sobre a {
+    width: 80%;
+    max-width: 300px;
+    height: 60px;
+    font-size: 18px;
+  }
+
+  .jogos {
+    gap: 10px;
+    padding: 20px 15px 0 15px;
+  }
+
+  .jogos button {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    font-size: 18px;
+    margin: 5px 0;
+  }
+
+  .rod {
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 20px;
+    align-items: flex-start;
+  }
+
+  .rodape,
+  .rodape1 {
+    width: 100%;
+  }
+
+  .card-largo {
+    width: 94%;
+  }
+
+  .card-largo img {
+    height: 110px;
+  }
+
+  .largo-topo {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+
+  .largo-topo h3 {
+    font-size: 18px;
+  }
+
+  .card-largo .largo-texto {
+    padding: 0 16px 16px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .largo-corpo,
+  .btn-card i {
+    transition: none;
+  }
+
+  [data-anim] .seta,
+  [data-anim] i {
+    animation: none;
+  }
+}

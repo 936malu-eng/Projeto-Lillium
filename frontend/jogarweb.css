@@ -1,0 +1,111 @@
+@font-face {
+  font-family: titulo;
+  src: url(./assets/MonogramsToolbox.ttf);
+}
+
+@font-face {
+  font-family: subtitulo;
+  src: url(./assets/Roman\ SD.ttf);
+}
+
+@font-face {
+  font-family: texto;
+  src: url(./assets/TIMESS__.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-family: "titulo";
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: #512784;
+  margin-bottom: 15px;
+}
+
+h2 {
+  text-align: center;
+  font-family: "subtitulo";
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  color: #1f0037;
+  margin-bottom: 20px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("./assets/emobras.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #bd9ed9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza na vertical */
+  align-items: center; /* centraliza na horizontal */
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Caixa central com imagem de alerta + mensagem */
+.aviso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 560px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aviso img {
+  display: block;
+  width: 160px;
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto 20px auto;
+}
+
+.aviso a {
+  display: inline-block;
+  font-family: "texto";
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  background-color: #512784;
+  padding: 12px 28px;
+  border-radius: 25px;
+  margin-top: 10px;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* hover: botão aumenta e muda de cor */
+.aviso a:hover {
+  background-color: #1f0037;
+  transform: scale(1.08);
+}
+
+.aviso a:focus-visible {
+  outline: 3px solid #1f0037;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .aviso {
+    padding: 30px 20px;
+  }
+
+  .aviso a {
+    font-size: 16px;
+    padding: 10px 22px;
+  }
+}
